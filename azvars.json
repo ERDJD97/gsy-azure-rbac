@@ -1,0 +1,16 @@
+{
+    "v_user" : "myadmin",
+    "v_pwd" : "try39.Pwd22",
+    "v_rg" : "erdgsy-gen",
+    "v_dba_rg" : "erdgsy-dba-rg",
+    "v_vnet" : "erdgsy-vnet",
+    "v_subnet" : "erdgsy01-subnet",
+    "v_priv_subnet" : "erdgsypriv-subnet",
+    "v_ip_priv" : "10.0.1.1",
+    "v_loc" : "eastus",
+    "v_sql_server" : "erdgsy-sqlsvr",
+    "v_sql_db" : "erdgsydb",
+    "v_pe_name" : "erdgsy-sqlsvr-pe",
+    "v_cosmos_acct_name" : "erdgsy-cosmos",
+    "v_cosmos_db_name" : "erdgsydb"
+}

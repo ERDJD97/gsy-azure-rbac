@@ -1,0 +1,23 @@
+{
+    "grants": {
+       "builtinRoles": ["SQL Server Contributor"],
+       "customRole": {
+           "name": "gsySQLServer",
+           "description": "Allows you to manage SQL Server"
+       }
+    },
+    "setup":
+    [
+        ["Creating resource group $v_dba_rg ", "az group create --name $v_dba_rg --location $v_loc "]
+    ],
+    "test":
+    [
+        ["Creating the SQL Server $v_sql_server ",
+            "az sql server create --name $v_sql_server --resource-group $v_dba_rg --location $v_loc --admin-user $v_user --admin-password $v_pwd "
+        ]
+    ],
+    "cleanup" :
+    [
+        ["Deleting the resource group $v_dba_rg ", "az group delete --name $v_dba_rg --yes "]
+    ]
+}

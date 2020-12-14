@@ -1,0 +1,23 @@
+{
+    "grants": {
+       "builtinRoles": ["DocumentDB Account Contributor"],
+       "customRole": {
+           "name": "gsyCosmosDB",
+           "description": "Allows you to create COSMOSDB account "
+       }
+    },
+    "setup":
+    [
+        ["Creating resource group $v_dba_rg ", "az group create --name $v_dba_rg --location $v_loc "]
+    ],
+    "test":
+    [
+        ["Creating the Cosmos DB account ",
+            "az cosmosdb create -n $v_cosmos_acct_name -g $v_dba_rg --default-consistency-level Eventual  "
+        ]
+    ],
+    "cleanup" :
+    [
+        ["Deleting the resource group $v_dba_rg ", "az group delete --name $v_dba_rg --yes "]
+    ]
+}

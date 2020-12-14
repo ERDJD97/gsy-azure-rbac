@@ -1,0 +1,30 @@
+{
+    "grants": {
+       "builtinRoles": ["SQL DB Contributor"],
+       "customRole": {
+           "name": "gsySQLServerDB",
+           "description": "Allows you to manage SQL Server Databases after a SQL Server has been created"
+       }
+    },
+    "setup":
+    [
+        ["Creating resource group $v_dba_rg ", "az group create --name $v_dba_rg --location $v_loc "],
+        ["Creating the SQL Server $v_sql_server ",
+            "az sql server create --name $v_sql_server --resource-group $v_dba_rg --location $v_loc --admin-user $v_user --admin-password $v_pwd "
+        ]
+    ],
+    "test":
+    [
+        ["Creating database...",
+            "az sql db create --resource-group $v_dba_rg --server $v_sql_server --name $v_sql_db --service-objective S0 --max-size 5GB"
+        ],
+        ["Showing database...",
+            "az sql db show --resource-group $v_dba_rg --server $v_sql_server --name $v_sql_db "],
+        ["Resizing a database...",
+            "az sql db update --resource-group $v_dba_rg --server $v_sql_server --name $v_sql_db --max-size 2GB "]
+    ],
+    "cleanup" :
+    [
+        ["Deleting the resource group $v_dba_rg ", "az group delete --name $v_dba_rg --yes "]
+    ]
+}

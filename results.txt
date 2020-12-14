@@ -1,0 +1,67 @@
+
+Test #1: Create a SQL Server
+Built-in Role: SQL Server Contributor
+Notes: the biggest problem here are the *
+        "actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.ResourceHealth/availabilityStatuses/read",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Sql/locations/*/read",
+          "Microsoft.Sql/servers/*",
+          "Microsoft.Support/*",
+          "Microsoft.Insights/metrics/read",
+          "Microsoft.Insights/metricDefinitions/read"
+        ],
+
+Custom Role: gsySQLServer
+        "actions": [
+          "Microsoft.Sql/servers/write",
+          "Microsoft.Sql/servers/read"
+        ],
+
+_____________________
+Test #2: Create a database on an existing SQL Server
+Built-in Role: SQL DB Contributor
+        "actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.ResourceHealth/availabilityStatuses/read",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Sql/locations/*/read",
+          "Microsoft.Sql/servers/databases/*",
+          "Microsoft.Sql/servers/read",
+          "Microsoft.Support/*",
+          "Microsoft.Insights/metrics/read",
+          "Microsoft.Insights/metricDefinitions/read"
+        ],
+
+Custom Role: gsySQLServerDB
+        "actions": [
+          "Microsoft.Sql/servers/read",
+          "Microsoft.Sql/servers/databases/write",
+          "Microsoft.Sql/servers/databases/read"
+        ],
+
+_______________________
+Test #3: Create a CosmosDB Account
+Built-in Role: DocumentDB Account Contributor
+        "actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.DocumentDb/databaseAccounts/*",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.ResourceHealth/availabilityStatuses/read",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*",
+          "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action"
+        ],
+
+Custom Role: gsyCosmosDB
+        "actions": [
+          "Microsoft.DocumentDB/databaseAccounts/write",
+          "Microsoft.Resources/subscriptions/resourcegroups/read"
+        ],
+
